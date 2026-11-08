@@ -87,7 +87,8 @@ nav a:hover{opacity:1;color:var(--amarelo)}
 .sign-wrap{display:flex;justify-content:center;min-width:0}
 .sign{width:min(360px,100%);height:auto;overflow:visible;cursor:pointer}
 .sign .ring{stroke:var(--coral)}
-.sign .word{fill:#FFE7DE;font-family:var(--display);font-weight:800;font-size:46px;letter-spacing:6px}
+.sign .word{fill:#F2C230;font-family:var(--display);font-weight:800;font-size:84px;letter-spacing:0}
+.sign .spark{display:none}
 .sign .spark{fill:var(--amarelo);transform-box:fill-box;transform-origin:center}
 .sign .glow{filter:drop-shadow(0 0 10px rgba(228,87,46,.9)) drop-shadow(0 0 28px rgba(228,87,46,.55))}
 .sign.flick .glow{animation:flick .55s steps(1) 1}
@@ -358,8 +359,8 @@ footer b{color:var(--amarelo);font-family:var(--display)}
         <circle cx="200" cy="14" r="8" fill="#FFFFFF"/>
         <path d="M110 74 L200 20 L290 74" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
         <g class="glow">
-          <rect class="ring" x="20" y="74" width="360" height="170" rx="85" fill="none" stroke-width="12"/>
-          <text class="word" x="200" y="190" text-anchor="middle">ABERTO</text>
+          <rect class="ring" x="20" y="74" width="360" height="170" rx="30" fill="none" stroke-width="12"/>
+          <text class="word" x="200" y="186" text-anchor="middle">aberto</text>
           <polygon class="spark" points="200,92 208,108 224,116 208,124 200,140 192,124 176,116 192,108"/>
         </g>
       </svg>
@@ -752,8 +753,8 @@ footer b{color:var(--amarelo);font-family:var(--display)}
           <circle cx="200" cy="14" r="8" fill="#FFFFFF"/>
           <path d="M110 74 L200 20 L290 74" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
           <g class="glow">
-            <rect class="ring" x="20" y="74" width="360" height="170" rx="85" fill="none" stroke-width="12"/>
-            <text class="word" x="200" y="190" text-anchor="middle">ABERTO</text>
+            <rect class="ring" x="20" y="74" width="360" height="170" rx="30" fill="none" stroke-width="12"/>
+            <text class="word" x="200" y="186" text-anchor="middle">aberto</text>
             <polygon class="spark" points="200,92 208,108 224,116 208,124 200,140 192,124 176,116 192,108"/>
           </g>
         </svg>
@@ -816,7 +817,7 @@ footer b{color:var(--amarelo);font-family:var(--display)}
       s.last=i;
       var e=i*i*(3-2*i);
       s.ring.style.stroke=mix(OFF,'#E4572E',e);
-      s.word.style.fill=mix(OFF,'#FFE7DE',e);
+      s.word.style.fill=mix(OFF,'#F2C230',e);
       s.spark.style.fill=mix(OFF,'#F2C230',e);
       s.spark.style.transform='scale('+(0.55+0.45*e)+') rotate('+(-40*(1-e))+'deg)';
       s.glow.style.filter=e>0.02?'drop-shadow(0 0 '+(10*e).toFixed(1)+'px rgba(228,87,46,'+(0.9*e).toFixed(2)+')) drop-shadow(0 0 '+(28*e).toFixed(1)+'px rgba(228,87,46,'+(0.55*e).toFixed(2)+'))':'none';
