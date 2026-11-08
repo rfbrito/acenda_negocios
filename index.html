@@ -882,7 +882,10 @@ footer b{color:var(--amarelo);font-family:var(--display)}
       .then(function(r){if(!r.ok)throw new Error(r.status);
         msg.textContent='Recebemos seu pedido! A gente te chama no WhatsApp em breve.';link.textContent='Se tiver pressa, fale com a gente agora';
         formEl.querySelectorAll('input:not([type=hidden]),textarea').forEach(function(i){i.value=''});})
-      .catch(function(){msg.textContent='Não conseguimos enviar agora.';link.textContent='Toque aqui para mandar pelo WhatsApp';})
+      .catch(function(){
+        // Se o envio rápido falhar (ex.: formulário ainda não ativado no FormSubmit), envia do jeito tradicional, que sempre funciona
+        if(ep&&formEl.action){var nx=formEl.querySelector('input[name="_next"]');if(!nx){nx=document.createElement('input');nx.type='hidden';nx.name='_next';formEl.appendChild(nx)}nx.value=new URL('obrigado.html',location.href).href;HTMLFormElement.prototype.submit.call(formEl);return}
+        msg.textContent='Não conseguimos enviar agora.';link.textContent='Toque aqui para mandar pelo WhatsApp';})
       .then(function(){sent.hidden=false;btn.disabled=false;btn.textContent='Pedir diagnóstico grátis'});
   });
 })();
