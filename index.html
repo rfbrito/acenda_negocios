@@ -766,11 +766,7 @@ footer b{color:var(--amarelo);font-family:var(--display)}
           <div><span>Instagram</span><a class="ct" href="https://www.instagram.com/acenda_negocios" target="_blank" rel="noopener">@acenda_negocios</a></div>
         </div>
       </div>
-      <form id="form" method="POST" action="https://formsubmit.co/brito231q@hotmail.com" data-endpoint="https://formsubmit.co/ajax/brito231q@hotmail.com" data-live="1" novalidate>
-        <input type="hidden" name="_subject" value="Novo pedido de diagnóstico pelo site da Acenda">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <p hidden><label>Não preencha: <input name="_honey"></label></p>
+      <form id="form" novalidate>
         <label for="f-nome">Seu nome<input id="f-nome" name="nome" autocomplete="name" required></label>
         <div class="row">
           <label for="f-negocio">Nome do negócio<input id="f-negocio" name="negocio" required></label>
@@ -873,7 +869,7 @@ footer b{color:var(--amarelo);font-family:var(--display)}
     var sent=document.getElementById('sent'),msg=document.getElementById('sent-msg'),link=document.getElementById('sent-link');
     link.href='https://wa.me/5521969955168?text='+encodeURIComponent(txt);
     // No site publicado (data-live) o pedido é registrado no Netlify Forms; na prévia só monta a mensagem do WhatsApp
-    if(formEl.dataset.live!=='1'){msg.textContent='Mensagem pronta.';link.textContent='Toque aqui para enviar pelo WhatsApp';sent.hidden=false;return}
+    if(formEl.dataset.live!=='1'){msg.textContent='Mensagem pronta.';link.textContent='Toque aqui para enviar pelo WhatsApp';sent.hidden=false;try{window.open(link.href,'_blank')}catch(_){}return}
     if(!v('f-nome')||!v('f-zap')){msg.textContent='Preencha pelo menos o seu nome e o WhatsApp para a gente te chamar.';link.textContent='Ou fale direto pelo WhatsApp';sent.hidden=false;return}
     var btn=formEl.querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Enviando...';
     // Com data-endpoint (FormSubmit) o pedido vai direto para o e-mail; sem ele, para o Netlify Forms
